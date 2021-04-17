@@ -26,7 +26,7 @@ class Parcel(models.Model):
     delivered = models.BooleanField(default="False", blank=True, null=True)
 
 
-class Update(models.Model):
+class Shipping_Update(models.Model):
     parcel = models.ForeignKey(Parcel, on_delete=models.CASCADE, blank=True, null=True)
     update_date = models.CharField(max_length=50, blank=True, default='', null=True)
     update_country = models.CharField(max_length=100, blank=True, default='', null=True)
