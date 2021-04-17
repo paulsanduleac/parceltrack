@@ -6,6 +6,7 @@ class Destination(models.Model):
     address_label = models.CharField(max_length=200)
     contents = models.TextField(blank=True, default='', null=True)
 
+
 class Parcel(models.Model):
     label = models.CharField(max_length=200, blank=True, null=True)
     carrier = models.CharField(max_length=100, default="Sea", blank=True, null=True)
@@ -24,5 +25,13 @@ class Parcel(models.Model):
     tracking_international = models.CharField(max_length=50, blank=True, default='', null=True)
     delivered = models.BooleanField(default="False", blank=True, null=True)
 
-# class Event(models.Model):
-#
+
+class Update(models.Model):
+    parcel = models.ForeignKey(Parcel, on_delete=models.CASCADE, blank=True, null=True)
+    update_date = models.CharField(max_length=50, blank=True, default='', null=True)
+    update_country = models.CharField(max_length=100, blank=True, default='', null=True)
+    update_city = models.CharField(max_length=100, blank=True, default='', null=True)
+    update_message_en = models.TextField(blank=True, default='', null=True)
+    update_message_details_en = models.TextField(blank=True, default='', null=True)
+    update_message_ru = models.TextField(blank=True, default='', null=True)
+    update_message_details_ru = models.TextField(blank=True, default='', null=True)
